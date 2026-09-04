@@ -8,331 +8,122 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* CSS RESET & VARIABLES */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
         :root {
-            --primary-color: #0f172a;
-            --accent-color: #c5a880;
-            --accent-hover: #b3936a;
-            --bg-light: #f8fafc;
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-            --white: #ffffff;
+            --primary-color: #0f172a; --accent-color: #c5a880; --accent-hover: #b3936a;
+            --bg-light: #f8fafc; --text-dark: #1e293b; --text-muted: #64748b; --white: #ffffff;
             --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
             --transition: all 0.3s ease;
         }
-
-        body {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
+        body { background-color: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
+        
         /* NAVBAR */
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 8%;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 8%;
+            background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
         }
-
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700;
+            color: var(--white); text-decoration: none; letter-spacing: 1px;
         }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
+        .logo span { color: var(--accent-color); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: #cbd5e1; text-decoration: none; font-weight: 500; transition: var(--transition); }
+        .nav-links a:hover { color: var(--accent-color); }
         .btn-nav {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 0.6rem 1.4rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
+            background: var(--accent-color); color: var(--primary-color); padding: 0.6rem 1.4rem;
+            border-radius: 30px; text-decoration: none; font-weight: 600; transition: var(--transition);
         }
+        .btn-nav:hover { background: var(--accent-hover); transform: translateY(-2px); }
 
-        .btn-nav:hover {
-            background: var(--accent-hover);
-            transform: translateY(-2px);
-        }
-
-        /* HERO SECTION */
+        /* HERO SECTION (Menggunakan Gambar Kolam) */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), 
-                        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 1rem;
-            margin-bottom: 5rem;
+            /* Gambar kolam digunakan sebagai background hero, digelapkan agar teks terbaca */
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), 
+                        url('image_0.png') center/cover no-repeat;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; padding: 0 1rem; margin-bottom: 5rem;
         }
-
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            color: var(--white);
-            margin-bottom: 1rem;
-            max-width: 800px;
+            font-family: 'Playfair Display', serif; font-size: 3.5rem;
+            color: var(--white); margin-bottom: 1rem; max-width: 800px;
         }
-
-        .hero p {
-            color: #e2e8f0;
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
+        .hero p { color: #e2e8f0; font-size: 1.2rem; margin-bottom: 2.5rem; max-width: 600px; }
 
         /* SEARCH BAR */
         .search-box {
-            background: var(--white);
-            padding: 1rem;
-            border-radius: 50px;
-            display: flex;
-            gap: 1rem;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            max-width: 850px;
-            width: 90%;
+            background: var(--white); padding: 1rem; border-radius: 50px; display: flex;
+            gap: 1rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 850px; width: 90%;
         }
-
         .search-item {
-            flex: 1;
-            padding: 0.5rem 1rem;
-            border-right: 1px solid #e2e8f0;
-            text-align: left;
+            flex: 1; padding: 0.5rem 1rem; border-right: 1px solid #e2e8f0; text-align: left;
         }
-
-        .search-item:last-child {
-            border-right: none;
-        }
-
+        .search-item:last-child { border-right: none; }
         .search-item label {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            font-weight: 700;
+            display: block; font-size: 0.75rem; text-transform: uppercase;
+            color: var(--text-muted); font-weight: 700;
         }
-
         .search-item select, .search-item input {
-            width: 100%;
-            border: none;
-            outline: none;
-            font-weight: 600;
-            color: var(--text-dark);
-            background: transparent;
+            width: 100%; border: none; outline: none; font-weight: 600;
+            color: var(--text-dark); background: transparent;
         }
-
         .btn-search {
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 40px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
+            background: var(--primary-color); color: var(--white); border: none;
+            padding: 1rem 2rem; border-radius: 40px; cursor: pointer;
+            font-weight: 600; transition: var(--transition);
         }
-
-        .btn-search:hover {
-            background: var(--accent-color);
-        }
+        .btn-search:hover { background: var(--accent-color); }
 
         /* SECTION TITLE */
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 0 1rem;
-        }
+        .section-header { text-align: center; margin-bottom: 3rem; padding: 0 1rem; }
+        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-color); }
+        .section-header p { color: var(--text-muted); }
 
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            color: var(--primary-color);
-        }
-
-        .section-header p {
-            color: var(--text-muted);
-        }
-
-        /* PROPERTY GRID */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-bottom: 5rem;
-        }
-
-        .property-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .property-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-img {
-            position: relative;
-            height: 240px;
-        }
-
-        .card-img img {
+        /* PROPERTY SECTION */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* Penambahan Gambar Penuh di sini */
+        .featured-property-large {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: 400px; /* Ukuran tinggi gambar */
+            object-fit: cover; /* Memastikan gambar tidak terdistorsi */
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-bottom: 3rem;
+            display: block;
         }
 
-        .tag {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .price {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .location {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .details {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid #f1f5f9;
-            padding-top: 1rem;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .details i {
-            color: var(--primary-color);
-            margin-right: 5px;
-        }
+        .property-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 5rem; }
+        .property-card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); }
+        .property-card:hover { transform: translateY(-10px); }
+        .card-img { position: relative; height: 240px; }
+        .card-img img { width: 100%; height: 100%; object-fit: cover; }
+        .tag { position: absolute; top: 1rem; left: 1rem; background: var(--primary-color); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .card-content { padding: 1.5rem; }
+        .price { font-size: 1.4rem; font-weight: 700; color: var(--accent-color); margin-bottom: 0.5rem; }
+        .title { font-size: 1.2rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--primary-color); }
+        .location { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.2rem; }
+        .details { display: flex; justify-content: space-between; border-top: 1px solid #f1f5f9; padding-top: 1rem; color: var(--text-muted); font-size: 0.85rem; }
+        .details i { color: var(--primary-color); margin-right: 5px; }
 
         /* FOOTER */
-        footer {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 4rem 8% 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-col h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.2rem;
-            color: var(--accent-color);
-        }
-
-        .footer-col p, .footer-col a {
-            color: #94a3b8;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.8rem;
-            transition: var(--transition);
-        }
-
-        .footer-col a:hover {
-            color: var(--white);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            border-top: 1px solid #334155;
-            padding-top: 2rem;
-            color: #64748b;
-            font-size: 0.9rem;
-        }
+        footer { background: var(--primary-color); color: var(--white); padding: 4rem 8% 2rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
+        .footer-col h4 { font-size: 1.2rem; margin-bottom: 1.2rem; color: var(--accent-color); }
+        .footer-col p, .footer-col a { color: #94a3b8; text-decoration: none; display: block; margin-bottom: 0.8rem; transition: var(--transition); }
+        .footer-col a:hover { color: var(--white); }
+        .footer-bottom { text-align: center; border-top: 1px solid #334155; padding-top: 2rem; color: #64748b; font-size: 0.9rem; }
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
-            .search-box {
-                flex-direction: column;
-                border-radius: 20px;
-            }
-            .search-item {
-                border-right: none;
-                border-bottom: 1px solid #e2e8f0;
-            }
+            .search-box { flex-direction: column; border-radius: 20px; }
+            .search-item { border-right: none; border-bottom: 1px solid #e2e8f0; }
             .nav-links { display: none; }
+            .featured-property-large { height: 250px; }
         }
     </style>
 </head>
@@ -349,6 +140,7 @@
         <a href="#kontak" class="btn-nav">Titip Jual</a>
     </nav>
 
+    <!-- HERO SECTION (Latar Belakang Gambar Kolam) -->
     <section class="hero" id="home">
         <h1>Temukan Hunian Mewah & Investasi Terbaik Anda</h1>
         <p>Koleksi properti premium eksklusif di lokasi-lokasi paling strategis.</p>
@@ -380,13 +172,18 @@
         </div>
     </section>
 
+    <!-- PROPERTI SECTION -->
     <section class="container" id="properti">
         <div class="section-header">
             <h2>Properti Pilihan Utama</h2>
             <p>Jelajahi portofolio hunian eksklusif yang siap Anda miliki</p>
         </div>
 
+        <!-- Gambar Kolam Ditampilkan Sebagai Fitur Utama (Ukuran Penuh) -->
+        <img src="image_0.png" alt="Vila Mewah dengan Kolam Renang" class="featured-property-large">
+
         <div class="property-grid">
+            <!-- Card 1 (Contoh yang sama seperti sebelumnya) -->
             <div class="property-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80" alt="Vila Modern">
@@ -404,6 +201,7 @@
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="property-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Rumah Mewah">
@@ -421,6 +219,7 @@
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="property-card">
                 <div class="card-img">
                     <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=800&q=80" alt="Apartemen Skypenthouse">
@@ -446,23 +245,4 @@
                 <a href="#" class="logo" style="margin-bottom: 1rem; display: inline-block;">LUXE<span>SPACE</span></a>
                 <p>Platform terpercaya untuk jual, beli, dan sewa properti mewah di Indonesia.</p>
             </div>
-            <div class="footer-col">
-                <h4>Navigasi</h4>
-                <a href="#home">Beranda</a>
-                <a href="#properti">Katalog Properti</a>
-                <a href="#tentang">Tentang Kami</a>
-            </div>
-            <div class="footer-col">
-                <h4>Kontak Kami</h4>
-                <p><i class="fa-solid fa-envelope"></i> info@luxespace.com</p>
-                <p><i class="fa-solid fa-phone"></i> +62 812 3456 7890</p>
-                <p><i class="fa-solid fa-building"></i> Jakarta, Indonesia</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 LuxeSpace Real Estate. All rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+            <div class="footer
